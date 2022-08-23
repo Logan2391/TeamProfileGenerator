@@ -1,31 +1,31 @@
-const Manager = require('../lib/Manager.js');
+const Employee = require('../lib/Employee.js');
 
-describe("Manager Class", () => {
+describe("Employee Class", () => {
     describe('getName()', () => {
         it('Should return the name entered by the user', () => {
 
-            expect(Manager.getName()).toEqual();
+            expect(Employee.getName()).toEqual();
         });
     });
 
     describe('getId()', () => {
         it('Should return the Id entered by the user', () => {
 
-            expect(Manager.getId()).toEqual();
+            expect(Employee.getId()).toEqual();
         });
     });
 
     describe('getEmail()', () => {
         it('Should return the email entered by the user', () => {
 
-            expect(Manager.getEmail()).toEqual();
+            expect(Employee.getEmail()).toEqual();
         });
     });
 
     describe('getRole()', () => {
         it('Should return the role entered by the user', () => {
 
-            expect(Manager.getRole()).toEqual('Manager');
+            expect(Employee.getRole()).toEqual('Employee');
         });
     });
 })
