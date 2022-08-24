@@ -4,7 +4,7 @@ describe("Employee Class", () => {
     describe('getName()', () => {
         it('Should return the name entered by the user', () => {
 
-            expect(Employee.getName()).toEqual();
+            expect(Employee.getName()).toBe("Test Name");
         });
     });
 
