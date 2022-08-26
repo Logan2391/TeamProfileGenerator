@@ -1,14 +1,12 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
-const Employee = require('./lib/Employee.js');
 const Engineer = require('./lib/Engineer.js');
-const Inter = require('./lib/Intern.js');
-const Manager = require('./lib/Manager.js');
 const Intern = require('./lib/Intern.js');
-const maker = require('./lib/Maker.js');
+const Manager = require('./lib/Manager.js');
+const people = require('./lib/Maker.js');
 const teamArray = [];
 
+// Manager prompt questions
 const managerQ = [
     {
         type: 'input',
@@ -57,6 +55,7 @@ const managerQ = [
 
 ]
 
+// question wether to add an intern, engineer or finish building them team 
 const addOrFinishQ = [
     {
         type: 'list',
@@ -66,6 +65,7 @@ const addOrFinishQ = [
     },
 ]
 
+// engineer prompt questions 
 const engineerQ = [
     {
         type: 'input',
@@ -113,6 +113,7 @@ const engineerQ = [
     }
 ]
 
+// intern prompt questions 
 const internQ = [
     {
         type: 'input',
@@ -160,6 +161,7 @@ const internQ = [
     }
 ]
 
+// prompts the add or finish questions, if adding an intern or engineer it will prompt you with the questions to add one or allows you to finish building and writes the file 
 function nextEmp() {
     inquirer.prompt(addOrFinishQ).then(function (answer) {
         switch (answer.addOrFinish) {
@@ -175,6 +177,7 @@ function nextEmp() {
     });
 };
 
+// prompts the manager questions than saves the new manager created to the team array 
 function promptManager() {
     inquirer.prompt(managerQ).then((answer) => {
         const manager = new Manager(answer.teamMangerN, answer.managerEmail, answer.managerId, answer.managerOffice, "Manager");
@@ -183,6 +186,7 @@ function promptManager() {
     })
 }
 
+// prompts the engineer questions than saves the new engineer created to the team array 
 function promptEngineer() {
     inquirer.prompt(engineerQ).then((answer) => {
         const engineer = new Engineer(answer.engineerN, answer.engineerEmail, answer.engineerId, answer.engineerGithub, "Engineer");
@@ -191,6 +195,7 @@ function promptEngineer() {
     });
 }
 
+// prompts the intern questions than saves the new intern created to the team array 
 function promptIntern() {
     inquirer.prompt(internQ).then((answer) => {
         const intern = new Intern(answer.internN, answer.internEmail, answer.internId, answer.schoolName, "Intern");
@@ -199,12 +204,14 @@ function promptIntern() {
     });
 }
 
+// starts the sequence of building the team with the manager prompt
 function init() {
     promptManager();
 }
 
+// writes the data to a file that i can pull from to create the final webpage 
 function writeToFile() {
-    fs.writeFile("/dist/group.html", people(teamArray), err => {
+    fs.writeFile("./dist/group.html", people(teamArray), err => {
         if (err) {
             return console.log(err)
         }
@@ -213,4 +220,4 @@ function writeToFile() {
 }
 
 
-init()
+init();
