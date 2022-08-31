@@ -211,13 +211,13 @@ function init() {
 
 // writes the data to a file that i can pull from to create the final webpage 
 function writeToFile() {
-    fs.writeFile("./dist/group.html", people(teamArray), err => {
+    fs.writeFile("./dist/group.html", people(teamArray), function (err) {
         if (err) {
             return console.log(err)
         }
         console.log("Your team is being created!")
-    })
-}
+    });
+};
 
 
 init();
