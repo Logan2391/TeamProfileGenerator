@@ -129,7 +129,7 @@ const internQ = [
     {
         type: 'input',
         message: 'What is the interns email address?',
-        name: 'internsEmail',
+        name: 'internEmail',
         validate: function (answer) {
             if (answer.length < 1) {
                 return console.log("Please enter a valid email address.")
@@ -140,7 +140,7 @@ const internQ = [
     {
         type: 'input',
         message: 'What is the Interns employee ID?',
-        name: 'internsId',
+        name: 'internId',
         validate: function (answer) {
             if (answer.length < 1) {
                 return console.log("Please enter a valid ID.")
