@@ -180,7 +180,7 @@ function nextEmp() {
 // prompts the manager questions than saves the new manager created to the team array 
 function promptManager() {
     inquirer.prompt(managerQ).then((answer) => {
-        const manager = new Manager(answer.teamMangerN, answer.managerEmail, answer.managerId, answer.managerOffice, "Manager");
+        const manager = new Manager(answer.managerN, answer.managerEmail, answer.managerId, answer.managerOffice, "Manager");
         teamArray.push(manager);
         nextEmp();
     })
